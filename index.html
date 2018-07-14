@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>お試しRSA暗号</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="normalize.css" />
+  <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>お試しRSA暗号</h2>
+    <p>RSA暗号、どのように計算しているのか気になったので、実験ページ。</p>
+    <h3>§1. 公開鍵・秘密鍵の作成</h3>
+    <ol>
+      <li>相異なる素数 \( p= \) <input type="number" class="input" id="def_p">\(,~q= \) <input type="number" class="input" id="def_q"> をとる。</li>
+      <li>\(n = pq = \) <span class="output out_n"></span>\(,~ l = {\rm lcm}(p-1,q-1)\) とする。</li>
+      <li>\(l=\) <span class="output out_l"></span> と互いに素な自然数 \(e=\) <input type="number" class="input" id="def_e"> をとる。</li>
+      <li>\(ed \equiv 1 \small ~ ({\rm mod} ~l) ~\) をみたす自然数 \(d=\) <span class="output out_d"></span> をとる。</li>
+      <li>\((e,n)=(\)<span class="output out_e"></span>\(,\) <span class="output out_n"></span>\()\) を公開鍵とし、\((d,n)=(\)<span class="output out_d"></span>\(,\) <span class="output out_n"></span>\()\) を秘密鍵とする。</li>
+    </ol>
+    <div id="err" class="error"></div>
+    <div id="result">
+      <h3>§2. 暗号化 （定義域は \(1\) 以上 \(pq = \) <span class="output out_n"></span> 未満の自然数）</h3>
+      <p><input type="number" class="input" id="def_enc"> の \(e=\) <span class="output out_e"></span> 乗を \(n=\) <span class="output out_n"></span> で割った余り \(\mapsto\) <span class="output out_enc"></span></p>
+      <h3>§3. 復号化</h3>
+      <p><input type="number" class="input" id="def_dec"> の \(d=\) <span class="output out_d"></span> 乗を \(n=\) <span class="output out_n"></span> で割った余り \(\mapsto\) <span class="output out_dec"></span></p>
+    </div>
+    <h3>参考URL</h3>
+    <p><sup>[1]</sup> <a href="http://d.hatena.ne.jp/pashango_p/20090706/1246897957">RSA暗号で「ふっかつのじゅもん」を作る(1) - Pashango’s Blog</a></p>
+    <p><sup>[2]</sup> <a href="http://dic.nicovideo.jp/a/rsa%E6%9A%97%E5%8F%B7">RSA暗号とは (アールエスエーアンゴウとは) [単語記事] - ニコニコ大百科</a></p>
+  </div>
+  <footer>Created by <a href="http://nikosai.ml">Nikosai</a>.</footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
